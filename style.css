@@ -1,0 +1,352 @@
+@import url('https://googleapis.com');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #f7f4fb;
+    background-image: 
+        radial-gradient(at 15% 15%, #e8def8 0px, transparent 50%),
+        radial-gradient(at 85% 20%, #d8f3eb 0px, transparent 50%),
+        radial-gradient(at 50% 85%, #fcecd9 0px, transparent 55%);
+    background-attachment: fixed;
+    color: #352f44;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 20px 60px;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   NAVEGACIÓN SUPERIOR (ENLACES)
+   ========================================== */
+a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin: 0 6px 22px;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 14px rgba(53, 47, 68, 0.07);
+}
+
+a:first-of-type {
+    background-color: #ffffff;
+    color: #5c4b8a;
+    border: 2px solid #dfd3f7;
+}
+
+a:first-of-type::before {
+    content: "✦";
+    color: #9e88d6;
+}
+
+a:nth-of-type(2) {
+    background-color: #ffffff;
+    color: #26594b;
+    border: 2px solid #bce8d9;
+}
+
+a:nth-of-type(2)::before {
+    content: "🐾";
+}
+
+a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(53, 47, 68, 0.12);
+}
+
+/* ==========================================
+   TÍTULO PRINCIPAL
+   ========================================== */
+h1 {
+    color: #3d315c;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================
+   CONTENEDOR DEL FORMULARIO
+   ========================================== */
+#formulario {
+    background: #ffffff;
+    width: 100%;
+    max-width: 680px;
+    padding: 36px 38px;
+    border-radius: 28px;
+    box-shadow: 
+        0 20px 50px rgba(92, 75, 138, 0.08),
+        0 1px 3px rgba(92, 75, 138, 0.05);
+    border: 1px solid #ede8f5;
+    margin-bottom: 42px;
+}
+
+#formulario br {
+    display: none;
+}
+
+/* ==========================================
+   SECCIONES CON ACENTO PASTEL ÚNICO
+   ========================================== */
+fieldset {
+    border: none;
+    border-radius: 20px;
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    background-color: #faf9fc;
+    border-left: 5px solid #c7b5ed; /* Lavanda por defecto */
+}
+
+/* Sección 2: Salud (Menta pastel) */
+fieldset:nth-of-type(2) {
+    background-color: #f6fcf9;
+    border-left-color: #98dbc6;
+}
+
+/* Sección 3: Propietario (Durazno pastel) */
+fieldset:nth-of-type(3) {
+    background-color: #fffaf5;
+    border-left-color: #f7c797;
+}
+
+/* Sección 4: Adicional (Azul cielo pastel) */
+fieldset:nth-of-type(4) {
+    background-color: #f5faff;
+    border-left-color: #a6d1f5;
+}
+
+legend {
+    font-weight: 800;
+    font-size: 15px;
+    color: #3d315c;
+    background-color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(53, 47, 68, 0.06);
+    border: 1px solid #ece7f5;
+    letter-spacing: 0.2px;
+}
+
+/* ==========================================
+   CAMPOS Y ETIQUETAS
+   ========================================== */
+label {
+    display: block;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: #4f4666;
+    margin-bottom: 12px;
+}
+
+span {
+    display: block;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: #3d315c;
+    margin: 14px 0 8px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+select {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    padding: 11px 14px;
+    border: 1.5px solid #e2dcf0;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #352f44;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #9b84d4;
+    box-shadow: 0 0 0 4px rgba(155, 132, 212, 0.16);
+}
+
+/* ==========================================
+   BOTONES TIPO CHIP PARA RADIO Y CHECKBOX
+   ========================================== */
+label:has(input[type="radio"]),
+label:has(input[type="checkbox"]) {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff;
+    border: 1.5px solid #e4def2;
+    padding: 8px 14px;
+    border-radius: 12px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+label:has(input[type="radio"]):hover,
+label:has(input[type="checkbox"]):hover {
+    border-color: #b8a4e3;
+    background-color: #f6f2fc;
+}
+
+label:has(input:checked) {
+    background-color: #efe8fc;
+    border-color: #8f75cc;
+    color: #362859;
+    font-weight: 700;
+}
+
+/* Checkbox final de términos en fila completa */
+label:has(input[name="acepta"]) {
+    display: flex;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px 15px;
+    background-color: #ffffff;
+    border: 1.5px dashed #b8cce0;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #7d63bd;
+    cursor: pointer;
+}
+
+/* ==========================================
+   BOTONES DE ACCIÓN
+   ========================================== */
+button[type="submit"],
+button[type="reset"] {
+    padding: 13px 26px;
+    border: none;
+    border-radius: 14px;
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 6px;
+    transition: all 0.25s ease;
+}
+
+button[type="submit"] {
+    background-color: #8fd6c0;
+    color: #163d32;
+    box-shadow: 0 6px 16px rgba(143, 214, 192, 0.35);
+}
+
+button[type="submit"]:hover {
+    background-color: #7ac7af;
+    transform: translateY(-2px);
+}
+
+button[type="reset"] {
+    background-color: #f5f2fa;
+    color: #5c5273;
+    border: 1.5px solid #e0d9ed;
+}
+
+button[type="reset"]:hover {
+    background-color: #ebe5f5;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   TABLA DE RESULTADOS
+   ========================================== */
+h2 {
+    color: #3d315c;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    max-width: 680px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(92, 75, 138, 0.08);
+    border: 1px solid #ede8f5;
+}
+
+thead {
+    background-color: #ece4fa;
+}
+
+th {
+    padding: 15px 22px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 800;
+    color: #46376b;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border: none;
+}
+
+td {
+    padding: 13px 22px;
+    border-bottom: 1px solid #f3effa;
+    border-left: none;
+    border-right: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #453d59;
+}
+
+td:first-child {
+    font-weight: 700;
+    color: #5b498a;
+    text-transform: capitalize;
+    width: 38%;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #faf8fe;
+}
+
+/* ==========================================
+   ADAPTABLE A CELULARES
+   ========================================== */
+@media (max-width: 600px) {
+    #formulario {
+        padding: 24px 20px;
+    }
+
+    button[type="submit"],
+    button[type="reset"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
